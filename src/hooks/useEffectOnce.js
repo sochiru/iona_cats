@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-/* FROM THIRD_PARTY */
-
+/**
+ * Custom hook for using useffect once.
+ * Note: This is a third party lib copied from web as workaround for React 18 double mounting
+ */
 const useEffectOnce = (effect) => {
   const effectFn = useRef(effect);
   const destroyFn = useRef();

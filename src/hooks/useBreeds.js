@@ -13,6 +13,9 @@ import useAlert from './useAlert';
 import useEffectOnce from './useEffectOnce';
 import useLoading from './useLoading';
 
+/**
+ * Custom hook for getting breeds and searching breeds
+ */
 const useBreeds = () => {
   const { store, setStore } = useContext(GlobalContext);
   const { setError } = useAlert();
@@ -44,6 +47,7 @@ const useBreeds = () => {
   }, [isLoading, setError, setLoading, setStore]);
 
   useEffectOnce(() => {
+    // get breeds on first mount
     getBreeds();
   });
 
@@ -84,6 +88,7 @@ const useBreeds = () => {
   }, [isLoading, setLoading, page, selectedBreed, setStore, store.search, setError]);
 
   useEffect(() => {
+    // search breeds on breed change and page
     if (selectedBreed) {
       searchBreeds();
     } else {
@@ -93,6 +98,7 @@ const useBreeds = () => {
   }, [selectedBreed, page]);
 
   const onChangeBreed = (e) => {
+    // onChange breed, reset states
     setPage(1);
     setIsLastPage(false);
     if (e.target.value) {
@@ -104,6 +110,7 @@ const useBreeds = () => {
   };
 
   const loadMore = (e) => {
+    // increase page counter when load more button is clicked
     e.preventDefault();
     setPage((prev) => prev + 1);
   };

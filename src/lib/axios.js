@@ -1,6 +1,9 @@
 import axios from 'axios';
 import ENV from 'consts/env';
 
+/**
+ * axios instance with api key and base url
+ */
 export default () => {
   const baseURL = ENV.API_BASE_URL;
   const apiKey = ENV.API_KEY;
@@ -21,13 +24,7 @@ export default () => {
     (response) => new Promise((resolve) => {
       resolve(response);
     }),
-    (error) => {
-      if (error.response) {
-        // temp
-      }
-
-      return Promise.reject(error);
-    }
+    (error) => Promise.reject(error)
   );
 
   return axiosInstance;

@@ -3,6 +3,9 @@ import {
   useContext,
 } from 'react';
 
+/**
+ * Custom hook for getting/setting loading states.
+ */
 const useLoading = () => {
   const { store, setStore } = useContext(GlobalContext);
 

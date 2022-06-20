@@ -1,7 +1,13 @@
 import React, { createContext, useMemo, useState } from 'react';
 
+/**
+ * create global context
+ */
 export const GlobalContext = createContext({});
 
+/**
+ * Global store provider
+ */
 export const GlobalProvider = ({ children }) => {
   const [store, setStore] = useState({
     search: {

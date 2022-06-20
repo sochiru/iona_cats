@@ -1,3 +1,6 @@
+/**
+ * API endpoint constants
+ */
 const API = {
   BREEDS: '/breeds',
   IMAGE_SEARCH: '/images/search',

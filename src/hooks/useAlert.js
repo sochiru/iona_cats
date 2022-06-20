@@ -3,6 +3,9 @@ import {
   useContext,
 } from 'react';
 
+/**
+ * Custom hook for getting/setting error states.
+ */
 const useAlert = () => {
   const { store, setStore } = useContext(GlobalContext);
 

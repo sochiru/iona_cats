@@ -10,6 +10,9 @@ import useEffectOnce from './useEffectOnce';
 import useLoading from './useLoading';
 import useAlert from './useAlert';
 
+/**
+ * Custom hook for cat details
+ */
 const useCatDetail = () => {
   const { catId } = useParams();
   const { setError } = useAlert();
@@ -38,6 +41,7 @@ const useCatDetail = () => {
   }, [isLoading, setLoading, catId, setStore, setError]);
 
   useEffectOnce(() => {
+    // Get cat detail on mount
     getCatDetail();
   });
 

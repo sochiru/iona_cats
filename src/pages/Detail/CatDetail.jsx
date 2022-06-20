@@ -7,6 +7,9 @@ import {
   Col, Container, Row
 } from 'react-bootstrap';
 
+/**
+ * Renders the Cat details page
+ */
 const CatDetail = () => {
   const { isLoading, handleBack, catDetail } = useCatDetail();
 

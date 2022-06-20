@@ -9,6 +9,9 @@ import {
 } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+/**
+ * Renders the Home page
+ */
 const Home = () => {
   const {
     isLoading, selectedBreed, breeds, searchBreeds, onChangeBreed, isLastPage, loadMore

@@ -2,6 +2,9 @@ import useAlert from 'hooks/useAlert';
 import React from 'react';
 import { Alert } from 'react-bootstrap';
 
+/**
+ * Component for displaying errors
+ */
 const MyAlerts = ({ storeKey }) => {
   const { isError, setError } = useAlert();
 
