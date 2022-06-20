@@ -66,11 +66,14 @@ const useBreeds = () => {
 
     axios().get(API.IMAGE_SEARCH, { params })
       .then((res) => {
+        // overwrite store if first page
         let arr = [...res.data];
         if (page > 1) {
+          // append to store if > first page
           arr = [...store.search.data, ...res.data];
         }
 
+        // Get unique from array
         const arrUniq = [...new Map(arr.map((v) => [v.id, v])).values()];
 
         if (res.headers['pagination-count'] === arrUniq.length.toString()) {
@@ -102,6 +105,7 @@ const useBreeds = () => {
     setPage(1);
     setIsLastPage(false);
     if (e.target.value) {
+      // update search params in url
       const newSearch = new URLSearchParams({ breed: e.target.value });
       navigate({ pathname: PAGES.HOME, search: newSearch.toString() });
     } else {
@@ -115,6 +119,15 @@ const useBreeds = () => {
     setPage((prev) => prev + 1);
   };
 
+  const viewCatDetails = (breedId) => {
+    navigate(
+      PAGES.CAT_DETAIL(breedId),
+      {
+        state: { search: location.search }
+      }
+    );
+  };
+
   return {
     isLoading,
     isLastPage,
@@ -122,7 +135,8 @@ const useBreeds = () => {
     breeds: store?.breeds?.data,
     searchBreeds: store?.search?.data,
     onChangeBreed,
-    loadMore
+    loadMore,
+    viewCatDetails
   };
 };
 

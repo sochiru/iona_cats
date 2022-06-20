@@ -1,5 +1,4 @@
 import MyAlerts from 'components/MyAlerts';
-import PAGES from 'consts/pages';
 import useBreeds from 'hooks/useBreeds';
 import React from 'react';
 import {
@@ -7,22 +6,18 @@ import {
   Card,
   Col, Container, Form, Row
 } from 'react-bootstrap';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 /**
  * Renders the Home page
  */
 const Home = () => {
   const {
-    isLoading, selectedBreed, breeds, searchBreeds, onChangeBreed, isLastPage, loadMore
+    isLoading, selectedBreed, breeds, searchBreeds, onChangeBreed, isLastPage, loadMore, viewCatDetails,
   } = useBreeds();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Container style={{ padding: '40px' }}>
       <MyAlerts storeKey="breeds" />
-      <MyAlerts storeKey="search" />
       <h1>Cat Browser</h1>
       <div style={{ marginTop: '24px' }}>
         <Row lg={4}>
@@ -43,6 +38,7 @@ const Home = () => {
           </Form>
         </Row>
       </div>
+      <MyAlerts storeKey="search" />
       {searchBreeds?.length > 0 ? (
         <Row xs={12} sm={6} md={3} lg={4}>
           {searchBreeds.map((breed) => (
@@ -52,12 +48,7 @@ const Home = () => {
                 <Card.Body className="d-grid gap-2">
                   <Button
                     variant="primary"
-                    onClick={() => navigate(
-                      PAGES.CAT_DETAIL(breed.id),
-                      {
-                        state: { search: location.search }
-                      }
-                    )}
+                    onClick={() => viewCatDetails(breed.id)}
                   >
                     View details
                   </Button>
