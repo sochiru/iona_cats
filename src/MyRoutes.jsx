@@ -2,8 +2,8 @@ import React from 'react';
 import {
   BrowserRouter, Routes, Route
 } from 'react-router-dom';
-import CatDetail from 'views/detail/CatDetail';
-import Home from 'views/home/Home';
+import CatDetail from 'pages/Detail/CatDetail';
+import Home from 'pages/Home/Home';
 
 /**
  * Renders the routes

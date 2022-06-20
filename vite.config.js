@@ -12,7 +12,7 @@ export default defineConfig({
       { find: 'context', replacement: resolve(__dirname, 'src/context') },
       { find: 'hooks', replacement: resolve(__dirname, 'src/hooks') },
       { find: 'lib', replacement: resolve(__dirname, 'src/lib') },
-      { find: 'views', replacement: resolve(__dirname, 'src/views') },
+      { find: 'pages', replacement: resolve(__dirname, 'src/pages') },
     ],
   },
 });
